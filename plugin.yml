@@ -1,0 +1,16 @@
+main: AdminConfirmed\SimpleFly\Main
+name: SimpleFly
+author: AdminConfirmed
+version: 0.0.1
+api: 3.0.0
+
+commands:
+  fly:
+    permission: "simplefly.command"
+    description: "Toggles specified Players fly mode"
+
+permissions:
+  simplefly.command:
+    default: op
+  simplefly.command.other:
+    default: op

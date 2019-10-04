@@ -1,0 +1,7 @@
+
+#Disable Players flight when they join?
+flydisable-onJoin: false
+
+#Disable Players flight when in Combat?
+flydisable-onCombat: true
+
