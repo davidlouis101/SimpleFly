@@ -5,9 +5,9 @@ version: 0.0.1
 api: [3.0.0, 4.0.0]
 
 commands:
-  fly:
+  fliegen:
     permission: "simplefly.command"
-    description: "Fliege Auf Paincraft"
+    description: "§c§lFliege Auf Paincraft"
 
 permissions:
   simplefly.command:
