@@ -34,13 +34,13 @@ class Main extends PluginBase implements Listener
         if($player->getAllowFlight()) {
             $player->setFlying(false);
             $player->setAllowFlight(false);
-            $player->sendMessage(C::RED . "Your flight has been disabled");
+            $player->sendMessage(C::RED . "Dein Fly-Mode Ist Aus");
         }
     }
 
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool
     {
-        if($command->getName() === "fly"){
+        if($command->getName() === "fliegen"){
             if(!$sender instanceof Player){
                 $sender->sendMessage("Please use this comamnd in-game");
                 return false;
@@ -48,7 +48,7 @@ class Main extends PluginBase implements Listener
 
             if(isset($args[0])){
                 if(!$sender->hasPermission("simplefly.command.other")){
-                    $sender->sendMessage(C::RED . "You do not have permissions to toggle others flight");
+                    $sender->sendMessage(C::RED . "You do not have permissions to Umgeschaltet others flight");
                     return false;
                 }
                 $target = $sender->getServer()->getPlayer($args[0]);
@@ -59,13 +59,13 @@ class Main extends PluginBase implements Listener
                 if($target->getAllowFlight()){
                     $target->setFlying(false);
                     $target->setAllowFlight(false);
-                    $target->sendMessage(C::RED . "Your flight was toggled off by an Admin");
-                    $sender->sendMessage(C::RED . "Toggled " . $target->getName() . "'s flight off");
+                    $target->sendMessage(C::RED . "Dein Fly-Mode Wurde von Ein Administrator Deaktiviert");
+                    $sender->sendMessage(C::RED . "Umgeschaltet " . $target->getName() . "'s Fliegen Deaktiviert");
                 } else {
                     $target->setAllowFlight(true);
                     $target->setFlying(true);
-                    $target->sendMessage(C::GREEN . "Your flight was toggled on by an Admin");
-                    $sender->sendMessage(C::GREEN . "Toggled " . $target->getName() . "'s flight on");
+                    $target->sendMessage(C::GREEN . "Dein Fly-Mode Wurde von Ein Administrator Aktiviert");
+                    $sender->sendMessage(C::GREEN . "Umgeschaltet " . $target->getName() . "'s fliegen Aktiviert");
                 }
                 return false;
             }
@@ -73,11 +73,11 @@ class Main extends PluginBase implements Listener
             if($sender->getAllowFlight()){
                 $sender->setFlying(false);
                 $sender->setAllowFlight(false);
-                $sender->sendMessage(C::RED . "Toggled your flight off");
+                $sender->sendMessage(C::RED . "Umgeschaltet Dein Fliegen Auf Deaktiviert");
             } else {
                 $sender->setAllowFlight(true);
                 $sender->setFlying(true);
-                $sender->sendMessage(C::GREEN . "Toggled your flight on");
+                $sender->sendMessage(C::GREEN . "Umgeschaltet Dein Fliegen Auf Aktiv");
             }
         }
         return false;
@@ -98,12 +98,12 @@ class Main extends PluginBase implements Listener
         if($entity->getAllowFlight()){
             $entity->setFlying(false);
             $entity->setAllowFlight(false);
-            $entity->sendMessage(C::RED . "Your flight has been disabled");
+            $entity->sendMessage(C::RED . "Dein Fliegen Wurde Deaktiviert");
         }
         if($damager->getAllowFlight()){
             $damager->setFlying(false);
             $damager->setAllowFlight(false);
-            $damager->sendMessage(C::RED . "Your flight has been disabled");
+            $damager->sendMessage(C::RED . "Dein Fliegen Wurde Deaktiviert");
         }
     }
 
