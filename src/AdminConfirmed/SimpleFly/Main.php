@@ -34,7 +34,7 @@ class Main extends PluginBase implements Listener
         if($player->getAllowFlight()) {
             $player->setFlying(false);
             $player->setAllowFlight(false);
-            $player->sendMessage(C::RED . "Dein Fly-Mode Ist Aus");
+            $player->sendMessage(C::RED . "Fly Deaktiviert");
         }
     }
 
@@ -48,7 +48,7 @@ class Main extends PluginBase implements Listener
 
             if(isset($args[0])){
                 if(!$sender->hasPermission("simplefly.command.other")){
-                    $sender->sendMessage(C::RED . "You do not have permissions to Umgeschaltet others flight");
+                    $sender->sendMessage(C::RED . "Du Kannst Fly Für Andere Nicht Deaktivieren");
                     return false;
                 }
                 $target = $sender->getServer()->getPlayer($args[0]);
@@ -60,12 +60,12 @@ class Main extends PluginBase implements Listener
                     $target->setFlying(false);
                     $target->setAllowFlight(false);
                     $target->sendMessage(C::RED . "Dein Fly-Mode Wurde von Ein Administrator Deaktiviert");
-                    $sender->sendMessage(C::RED . "Umgeschaltet " . $target->getName() . "'s Fliegen Deaktiviert");
+                    $sender->sendMessage(C::RED . "Fly Von" . $target->getName() . "'Wurde Deaktiviert");
                 } else {
                     $target->setAllowFlight(true);
                     $target->setFlying(true);
                     $target->sendMessage(C::GREEN . "Dein Fly-Mode Wurde von Ein Administrator Aktiviert");
-                    $sender->sendMessage(C::GREEN . "Umgeschaltet " . $target->getName() . "'s fliegen Aktiviert");
+                    $sender->sendMessage(C::GREEN . "Fly Von" . $target->getName() . "Wurde Aktiviert");
                 }
                 return false;
             }
@@ -73,11 +73,11 @@ class Main extends PluginBase implements Listener
             if($sender->getAllowFlight()){
                 $sender->setFlying(false);
                 $sender->setAllowFlight(false);
-                $sender->sendMessage(C::RED . "Umgeschaltet Dein Fliegen Auf Deaktiviert");
+                $sender->sendMessage(C::RED . "Dein Fliegen Wurde Deaktiviert");
             } else {
                 $sender->setAllowFlight(true);
                 $sender->setFlying(true);
-                $sender->sendMessage(C::GREEN . "Umgeschaltet Dein Fliegen Auf Aktiv");
+                $sender->sendMessage(C::GREEN . "Dein Fliegen Wurde Aktiviert");
             }
         }
         return false;
